@@ -10,6 +10,14 @@ function writePassword() {
 
 }
 
+var specialArray = ["@", "%", "+", '!', '#', '$', '^', '&', '*', '(', ')', "-", '+', '=', '{', '}', '[', ']', '.', ';'];
+
+var numerals = ["0", '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+var lowerCaseAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+var upperCaseAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
 function generatePassword() {
 
   var length = prompt("Choose a password length (8 to 128 characters).");
@@ -21,7 +29,22 @@ function generatePassword() {
     alert("That's not even a number.");
     return "Try a number, buddy";
   }
+
+  if (length < 8) {
+    alert("Not enough letters.");
+    return "Password too short.";
+  }
+
+  if (length > 128) {
+    alert("Too many letters.");
+    return "Way too long, what are you thinking?";
+  }
 }
+
+var specials = confirm("Include special characters?");
+var numerics = confirm("Include numerals?");
+var lowercaseLetters = confirm("Use lowercase letters?");
+var uppercaseLetters = confirm("Use uppercase letters?");
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
