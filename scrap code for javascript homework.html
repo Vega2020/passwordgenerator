@@ -1,0 +1,33 @@
+scrap code for javascript homework
+
+// making a function like below
+  function definePool() {
+    var charPool = "";
+    if (numerics === true) {
+      charPool += "0123456789"
+      console.log(charPool)
+    }
+  };
+
+ // dissection and reworking of stackoverflow password example
+  function pickNumericCharacters() {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+};
+
+  
+  // SAMPLE FROM stackoverflow to dissect
+  // function passwordExample() {
+  //   var length = 8,
+  //       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+  //       retVal = "";
+  //   for (var i = 0, n = charset.length; i < length; ++i) {
+  //       retVal += charset.charAt(Math.floor(Math.random() * n));
+  //   }
+  //   return retVal;
+  // };
