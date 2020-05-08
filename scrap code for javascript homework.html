@@ -31,3 +31,38 @@ scrap code for javascript homework
   //   }
   //   return retVal;
   // };
+
+  // NEXT STEP: create a pool of characters by combining the chosen arrays into a new array
+  // ATTEMPT: trying to push chosen arrays into new array. needs to make a connection between a given value being "true" and pulling in the corresponding array
+  // var charSelections = [includeSpecials, includeNumerics, includeLowerCase, includeUpperCase];
+  // var charArrays = [specialArray, numeralArray, lowerCaseArray, upperCaseArray];
+  // var charMix = [];
+  // for(i = 0; i < charSelections.length; i++) {
+  //   if(charSelections[i] === true) {
+  //     charMix.push(charArrays[i]);
+  //   }
+  // }
+  // console.log(charMix);
+  
+  // THEN: use a loop based on the input password length to randomly select a character that many times from the new array. currently returning message that charArrays.charAt is not a function. tried having randomizedChars be a blank string with letters added using += and an array with letters added using .push
+  // var randomizedChars = [];
+  // for (i = 0, n = charArrays.length; i < length; i++) {
+  //   randomizedChars.push(
+  //     charArrays.charAt(Math.floor(Math.random() * n))
+  //     );
+  // }
+  // console.log(randomizedChars);
+  // did not work because: console said did not recognize charAt.
+
+
+  // THEN: combine the randomly selected characters into a string and print them to the text box
+  // return randomizedChars
+  
+  
+  // another dead end? terminal claimed not to recognize concat command
+  // if (includeSpecials === true) {userPicks.concat(specialArray)};
+  // if (includeNumerics === true) {userPicks.concat(numeralArray)};
+  // if (includeLowerCase === true) {userPicks.concat(lowerCaseArray)};
+  // if (includeUpperCase === true) {userPicks.concat(upperCaseArray)};
+  // var userPicks = [];
+  // console.log(userPicks);

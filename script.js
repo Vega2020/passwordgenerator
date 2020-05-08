@@ -1,31 +1,35 @@
-// Assignment Code: defines the button tagged as "generate" as the trigger
+// Assignment Code: defines the button tagged as "generate" as the trigger.
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button: sets the writePassword function to go off when the trigger is clicked
+// Add event listener to generate button: sets the writePassword function to go off when the trigger is clicked.
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input: takes the user data and prints it
+// Write password to the #password input: takes the user data and prints it to the text box.
 function writePassword() {
+  // Define the password as the result of the generatePassword function.
   var password = generatePassword();
+  // Define the variable passwordText as the element labeled "password".
   var passwordText = document.querySelector("#password");
 
+  // Define the value of the element labeled password (which is made equal to passwordText above) as the value of this function's password variable, which in turn is made equal to the result of the generatePassword function.
   passwordText.value = password;
 }
 
-// STEP: set up a function to input the desired characters and length and generate a string from them to use as the password
-
+// Set up a function to input the desired characters and length and generate a string from them to use as the password
+// Define the generatePassword function:
 function generatePassword() {
+  // Declare that Within this function, length is equal to the result of the prompt.
   var length = prompt("Choose a password length (8 to 128 characters).");
+  // Turn the result of the above prompt into an integer.
   length = parseInt(length);
-  // note: parseInt function turns a string into an integer
   
-  // note: isNaN checks if a variable is a number. "number.isNaN" does this without converting to string first
+  // Check whether the input is a number, and send a rejection message if it isn't.
   if (isNaN(length)) {
     alert("That's not even a number.");
     return "Try a number, buddy";
   };
   
-  // STEP: check that the input is between 8 and 128 characters
+  // Check that the input is between 8 and 128 characters, send reject message if it isn't.
   if (length < 8) {
     alert("Not enough letters.");
     return "Password too short.";
@@ -36,55 +40,48 @@ function generatePassword() {
     return "Way too long, what are you thinking?";
   };
   
-  // STEP: have user choose which character types to include
+  // Have user choose which character types to include.
   var includeSpecials = confirm("Include special characters?");
   var includeNumerics = confirm("Include numerals?");
   var includeLowerCase = confirm("Use lowercase letters?");
   var includeUpperCase = confirm("Use uppercase letters?");
   
+
+  // Send a rejection message if they didn't choose any character types.
   if (!includeSpecials && !includeNumerics && !includeLowerCase && !includeUpperCase) {
     alert("Pick at least one.");
     return "No characters selected";
   };
   
+  // Declare an empty string called password that we can fill with our random characters.
+  var password = "";
   
-  // NEXT STEP: create a pool of characters by combining the chosen arrays into a new array
-  // ATTEMPT: trying to push chosen arrays into new array. needs to make a connection between a given value being "true" and pulling in the corresponding array
-  var charSelections = [includeSpecials, includeNumerics, includeLowerCase, includeUpperCase];
-  var charArrays = [specialArray, numeralArray, lowerCaseArray, upperCaseArray];
-  var charMix = [];
-  for(i = 0; i < charSelections.length; i++) {
-    if(charSelections[i] === true) {
-      charMix.push(charArrays[i]);
-    }
-  }
-  console.log(charMix);
-  
-  // THEN: use a loop based on the input password length to randomly select a character that many times from the new array
-  var randomizedChars = "";
-  for (i = 0, n = charArrays.length; i < length; i++) {
-    randomizedChars += charArrays.charAt(Math.floor(Math.random() * n));
-  }
-  console.log(randomizedChars);
+  // Create a loop that picks a random character from within the selected arrays, and repeat it the number of times that the user chose for their password length at the beginning of this function.
+  for (var i = 0; i < length; i++) {
+    // If the user confirmed "include special characters" prompt,    
+    if (includeSpecials) {
+      // Then get a random value from the array of special characters.
+      password += getRandomValue(specialArray);
+    };
+      // Repeat the above for numerals and so on.
+    if (includeNumerics) {
+      password += getRandomValue(numeralArray);
+    };
+    if (includeLowerCase) {
+      password += getRandomValue(lowerCaseArray);
+    };
+    if (includeUpperCase) {
+      password += getRandomValue(upperCaseArray);
+    };
+};
+// The above code will repeat itself by the user-input length but it will do it again for each different value they picked. if they included all 4 characters types they'll end up with a password 4 times the desired length. The below returns a slice of the character string equal to the desired length instead of the whole string, so we don't care about having extra letters.
+return password.slice(0, length);
 
 
-
-
-  // THEN: combine the randomly selected characters into a string and print them to the text box
-  return randomizedChars
-  
-  
-  
-  
-  
-  // another dead end?
-  // if (includeSpecials === true) {userPicks.concat(specialArray)};
-  // if (includeNumerics === true) {userPicks.concat(numeralArray)};
-  // if (includeLowerCase === true) {userPicks.concat(lowerCaseArray)};
-  // if (includeUpperCase === true) {userPicks.concat(upperCaseArray)};
-  // var userPicks = [];
-  // console.log(userPicks);
-  
+// This function allows us to use invoke getRandomValue above to pull a random value from the named array.
+  function getRandomValue(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+  };
 } 
 
 
@@ -172,5 +169,4 @@ var upperCaseArray = [
   "Z",
 ];
 
-
-
+// end of script
