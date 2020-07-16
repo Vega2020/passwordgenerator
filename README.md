@@ -1,8 +1,17 @@
-# passwordgenerator
-Homework 3: Javascript password generator
-
-So far this project has taught me a couple of useful functions within javascript (parseInt and isNaN) and more generally about how to define and execute functions. Having a functioning example to work backward from has made this a much better learning experience because it has let me focus on just understanding how the code works instead of whether I'm doing it right.
-
-It's very interesting to see how much can ultimately be done with a few lines of code. It seems like a big part of mastering javascript will be learning about all the functionality built into it and how to call those functions.
-
-I annotated the code line by line with comments and find this to be a very helpful way to make sure I understand it myself.
+# *Password Generator*
+## By: Jeremy Flowers
+With help from U of A
+        
+Table of Contents:
+[Overview](Overview)
+[Installation](Installation)
+[Usage](Usage)
+        
+## Overview:
+This is a simple browser-based password generator that builds a string of random characters. The page gives prompts on loading that allow the user to choose the length of their password and the type of characters (uppercase, lowercase, numerals, and special symbols) that it will include. The page then returns the random password in a string that can be copied and pasted.
+        
+## Installation:
+Installation is as simple as cloning the repo locally. This app uses static files, so it is very compact and the directory can be located anywhere.
+        
+## Usage:
+After cloning the repository locally, open index.html in your browser. Click the "generate password" button and the page will begin displaying prompts that allow you to input characteristics of your password. Once the password is generated, you can copy and paste it wherever you need it.
