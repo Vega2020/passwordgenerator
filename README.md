@@ -2,9 +2,9 @@
 ## By: Jeremy Flowers
 With help from U of A
         
-Table of Contents:
-[Overview](Overview)
-[Installation](Installation)
+Table of Contents:  
+[Overview](Overview)  
+[Installation](Installation)  
 [Usage](Usage)
         
 ## Overview:
